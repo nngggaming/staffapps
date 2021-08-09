@@ -15,14 +15,14 @@ body {
 .form-popup {
   display: none;
   position: fixed;
-  margin: 0 auto;
   border: 3px solid #f1f1f1;
   z-index: 9;
 }
 
 .form-container {
   max-width: 300px;
-  padding: 100px;
+  padding: 10px;
+  background-color: white;
 }
 
 </style>
@@ -57,6 +57,7 @@ body {
 
 <div class="form-popup" id="myForm">
 <form class="form-container">
+    <p><b>Click the buton below to exit the site. </b></p>
     <button type="button" onclick="closePopup()" style="background-color: red;">Close and Exit</button>
   </form>
 </div>
