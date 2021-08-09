@@ -49,7 +49,27 @@ function submit(){
       var params = {
         username: "Epic Guild Applications",
         avatar_url: "",
-        content: "The message to send"
+        embeds: [
+          {
+            title: "The message to send",
+            fields: [
+              {
+                name: "Applicant",
+                value: `${document.getElementById("DiscordUsername").value} ${document.getElementById("DiscordId").value}`,
+                inline: true
+              },
+              {
+                name: "Questions",
+                inline: true
+              },
+              {
+                name: "Positions applied for:"
+                value: `${document.getElementById("Helper").value}\n${document.getElementById("Mod").value}`,
+                inline: true
+              }
+            ],
+          }
+        ]
       }
 
       request.send(JSON.stringify(params));
