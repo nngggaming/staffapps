@@ -11,6 +11,21 @@ body {
   color: white;
   opacity: 0.87;
 }
+
+.form-popup {
+  display: none;
+  position: fixed;
+  bottom: 0;
+  right: 15px;
+  border: 3px solid #f1f1f1;
+  z-index: 9;
+}
+
+.form-container {
+  max-width: 300px;
+  padding: 10px;
+}
+
 </style>
 </head>
 <body>
@@ -34,12 +49,23 @@ body {
   <label>Why do you want to apply for the position(s) you have chosen above?</label><br>
   <textarea id="WhyApply" name="WhyApply" cols="110" rows="20"></textarea><br><br>
   <label>If you are accepted into the position(s) you have chosen, how much time a in day can you dedicate to the server?</label><br>
-  <input type="text" id="DedicateTime name="DedicateTime" placeholder="How much time can you dedicate to Epic Guild?" size="40">
+  <input type="text" id="DedicateTime" name="DedicateTime" placeholder="How much time can you dedicate to Epic Guild?" size="40">
 </form>
+
+
 <button onClick="submit()" style="background-color: #e119e3; border: none; color: white; padding: 15px 32px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px; margin: 4px 2px; cursor: pointer;">Submit</button>
 
-<script>
 
+<div class="form-popup" id="myForm">
+<form class="form-container">
+    <button type="button" onclick="closePopup()" style="background-color: red;">Close and Exit</button>
+  </form>
+</div>
+
+<script>
+function closePopup() {
+   location.replace = "https://epicguilddiscord.github.io/staffapps";
+}
 function darkMode() {
    var element = document.body;
    element.classList.toggle("dark-mode");
@@ -91,7 +117,7 @@ function submit(){
               },
               {
                 name: "If you are accepted into the position(s) you have chosen, how much time in a day can you dedicate to the server?",
-                value: `${document.getElementById("DedicatedTime").value}`,
+                value: `${document.getElementById("DedicateTime").value}`,
                 inline: true
               }
             ],
