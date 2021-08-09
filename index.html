@@ -14,7 +14,7 @@ body {
 </style>
 </head>
 <body>
-<div style="top: 0; right: 0; left: 0;"><h1 style="display: inline;">Epic Guild Staff Applications</h1><button style="top: 0; float: right; background-color: green; border: none; color: white; padding: 10px 32px; text-align: center; text-decoration: none; font-size: 16px; margin: 4px 2px; cursor: pointer;" onClick="darkMode()">On/Off Dark Mode</button><hr style="overflow: auto;"></div><br/>
+<div style="top: 0; right: 0; left: 0;"><h1 style="display: inline;">Epic Guild Staff Applications</h1><button style="top: 0; float: right; background-color: green; border: none; color: white; padding: 10px 32px; text-align: center; text-decoration: none; font-size: 16px; margin: 4px 2px; cursor: pointer;" onClick="darkMode()">On/Off Dark Mode</button><hr style="overflow: auto;"></div><p style="color: red">Note: you have to fill in ALL fields or your application might not be recorded!</p><br/>
 <h2>1. Your Info</h2>
 <form>
   <label for="DiscordUsername">Discord Username</label><br>
@@ -58,10 +58,11 @@ function submit(){
         embeds: [
           {
             title: "New Staff Team Application",
+            color: "#ffa500",
             fields: [
               {
                 name: "Applicant",
-                value: `${document.getElementById("DiscordUsername").value} ${document.getElementById("DiscordId").value}`,
+                value: `${document.getElementById("DiscordUsername").value} <@${document.getElementById("DiscordId").value}>`,
                 inline: true
               },
               {
@@ -73,8 +74,8 @@ function submit(){
                 name: "Questions",
                 value: "\u200b",
                 inline: true
-              },               {
-                
+              },
+              {
                 name: "Why do you want to apply for the position(s) you have chosen above?",
                 value: `${document.getElementById("WhyApply").value}`,
                 inline: true
