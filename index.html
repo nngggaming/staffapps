@@ -34,7 +34,7 @@ body {
   <label>Why do you want to apply for the position(s) you have chosen above?</label><br>
   <textarea id="WhyApply" name="WhyApply" cols="110" rows="20"></textarea><br><br>
   <label>If you are accepted into the position(s) you have chosen, how much time a in day can you dedicate to the server?</label><br>
-  <input type="text" id="DedicateTime name="DedicateTime" placeholder="How much time can you dedicate to Epic Guild?" size="30">
+  <input type="text" id="DedicateTime name="DedicateTime" placeholder="How much time can you dedicate to Epic Guild?" size="40">
 </form>
 <button onClick="submit()" style="background-color: #e119e3; border: none; color: white; padding: 15px 32px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px; margin: 4px 2px; cursor: pointer;">Submit</button>
 
@@ -89,7 +89,10 @@ function submit(){
                 value: `${document.getElementById("WhyApply").value}`,
                 inline: true
               },
-
+              {
+                name: "If you are accepted into the position(s) you have chosen, how much time in a day can you dedicate to the server?",
+                value: `${document.getElementById("DedicatedTime").value}`,
+                inline: true
             ],
           }
         ]
