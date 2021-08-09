@@ -65,15 +65,21 @@ function submit(){
                 inline: true
               },
               {
-                name: "Questions",
-                value: "\u200b",
-                inline: true
-              },
-              {
                 name: "Positions applied for:",
                 value: `${getCheck("Helper")}\n${getCheck("Mod")}`,
                 inline: true
-              }
+              },
+              {
+                name: "Questions",
+                value: "\u200b",
+                inline: true
+              },               {
+                
+                name: "Why do you want to apply for the position(s) you have chosen above?",
+                value: `${document.getElementById("WhyApply").value}`,
+                inline: true
+              },
+
             ],
           }
         ]
