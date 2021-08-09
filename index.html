@@ -30,7 +30,7 @@ body {
   <input type="checkbox" id="Mod" name="Mod" value="Mod">
   <label for="Mod"> Mod</label><br>
 </form>
-<button style="background-color: #e119e3; border: none; color: white; padding: 15px 32px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px; margin: 4px 2px; cursor: pointer;">Submit</button>
+<button onClick="submit()" style="background-color: #e119e3; border: none; color: white; padding: 15px 32px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px; margin: 4px 2px; cursor: pointer;">Submit</button>
 
 <script>
 
@@ -38,6 +38,19 @@ function darkMode() {
    var element = document.body;
    element.classList.toggle("dark-mode");
 }
+function submit(){
+      var request = new XMLHttpRequest();
+      request.open("POST", secrets.webhook);
 
+      request.setRequestHeader('Content-type', 'application/json');
+
+      var params = {
+        username: "Epic Guild Applications",
+        avatar_url: "",
+        content: "The message to send"
+      }
+
+      request.send(JSON.stringify(params));
+}
 </script>
 </body>
