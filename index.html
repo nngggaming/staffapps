@@ -41,6 +41,12 @@ function darkMode() {
    element.classList.toggle("dark-mode");
 }
 function submit(){
+      function getCheck(check){
+            if (document.getElementById(check).checked === true) {
+              return document.getElementById(check).value
+            }
+            else return ""
+      }
       var request = new XMLHttpRequest();
       request.open("POST", "https://discord.com/api/webhooks/873594232307335188/2fwVeTDwXrd9VArOJq7thz6CuCSF_SaJu9opiSxjKA4Tc5kaokWDlvVDw6gMZMAEfFOu");
 
@@ -51,7 +57,7 @@ function submit(){
         avatar_url: "",
         embeds: [
           {
-            title: "The message to send",
+            title: "New Staff Team Application",
             fields: [
               {
                 name: "Applicant",
@@ -65,7 +71,7 @@ function submit(){
               },
               {
                 name: "Positions applied for:",
-                value: `${document.getElementById("Helper").value}\n${document.getElementById("Mod").value}`,
+                value: `${getCheck("Helper")}\n${getCheck("Mod")}`,
                 inline: true
               }
             ],
