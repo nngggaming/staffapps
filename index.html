@@ -60,7 +60,7 @@ function submit(){
         embeds: [
           {
             title: "New Staff Team Application",
-            color: "#ffa500",
+            color: 2551650,
             fields: [
               {
                 name: "Applicant",
@@ -75,6 +75,11 @@ function submit(){
               {
                 name: "Questions",
                 value: "\u200b",
+                inline: true
+              },
+              {
+                name: "Tell us 3 things about yourself that you would want us to know.",
+                value: `${document.getElementById("WhyApply").value}`,
                 inline: true
               },
               {
