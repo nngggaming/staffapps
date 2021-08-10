@@ -1,1 +1,127 @@
+<head>
+<style>
 
+body {
+  background-color: white;
+  color: black;
+}
+
+.dark-mode {
+  background-color: #181818;
+  color: white;
+  opacity: 0.87;
+}
+
+.form-popup {
+  display: none;
+  position: fixed;
+  margin: auto:
+  width: 100px;
+  border: 3px solid #f1f1f1;
+  z-index: 9;
+}
+
+.form-container {
+  max-width: 300px;
+  padding: 10px;
+  background-color: white;
+}
+
+</style>
+</head>
+<body>
+<div style="top: 0; right: 0; left: 0;"><h1 style="display: inline;">Epic Guild Staff Applications</h1><button style="top: 0; float: right; background-color: green; border: none; color: white; padding: 10px 32px; text-align: center; text-decoration: none; font-size: 16px; margin: 4px 2px; cursor: pointer;" onClick="darkMode()">On/Off Dark Mode</button><hr style="overflow: auto;"></div><p style="color: red">Note: you have to fill in ALL fields or your application might not be recorded!</p><br/>
+<h2>1. Your Info</h2>
+<form>
+  <label for="DiscordUsername">Discord Username</label><br>
+  <input type="text" id="DiscordUsername" name="DiscordUsername" placeholder="Your Discord Username (e.g. User#0001)" size="50"><br><br>
+  <label for="DiscordId">Discord User ID</label><br>
+  <input type="text" id="DiscordId" name="DiscordId" placeholder="Your Discord User ID(e.g. 12345678901234567890)" size="50">
+</form>
+<h2>2. General</h2>
+<form>
+  <label>What positions are you applying for?<br>You may select more than one</label><br/>
+  <input type="checkbox" id="Helper" name="Helper" value="Helper">
+  <label for="Helper"> Helper</label><br>
+  <input type="checkbox" id="Mod" name="Mod" value="Mod">
+  <label for="Mod"> Mod</label><br><br>
+  <label>Tell us 3 things about yourself that you would want us to know.</label><br><a target="_blank" href="https://epicguilddiscord.github.io/staffapps/threethingsaboutmyself-example.html">Click here to view an example.</a><br>
+  <textarea id="3Things" name="3Things" cols="110" rows="30" placeholder="Three things about myself..."></textarea><br><br>
+  <label>Why do you want to apply for the position(s) you have chosen above?</label><br>
+  <textarea id="WhyApply" name="WhyApply" cols="110" rows="20" placeholder="Why do you want to apply?"></textarea><br><br>
+  <label>If you are accepted into the position(s) you have chosen, how much time a in day can you dedicate to the server?</label><br>
+  <input type="text" id="DedicateTime" name="DedicateTime" placeholder="How much time can you dedicate to Epic Guild?" size="40">
+</form>
+
+
+<button onClick="submit(); closeTab()" style="background-color: #e119e3; border: none; color: white; padding: 15px 32px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px; margin: 4px 2px; cursor: pointer;">Submit</button>
+
+
+<script>
+
+function closeTab() {
+   setTimeout(function(){location.replace("https://epicguilddiscord.github.io/staffapps/submitted.html")},300)
+}
+function darkMode() {
+   var element = document.body;
+   element.classList.toggle("dark-mode");
+}
+function submit(){
+      function getCheck(check){
+            if (document.getElementById(check).checked === true) {
+              return document.getElementById(check).value
+            }
+            else return "\u200b"
+      }
+      var request = new XMLHttpRequest();
+      request.open("POST", "https://discord.com/api/webhooks/873594232307335188/2fwVeTDwXrd9VArOJq7thz6CuCSF_SaJu9opiSxjKA4Tc5kaokWDlvVDw6gMZMAEfFOu");
+
+      request.setRequestHeader('Content-type', 'application/json');
+
+      var params = {
+        username: "Epic Guild Applications",
+        avatar_url: "",
+        embeds: [
+          {
+            title: "New Staff Team Application",
+            color: 2551650,
+            fields: [
+              {
+                name: "Applicant",
+                value: `${document.getElementById("DiscordUsername").value} <@${document.getElementById("DiscordId").value}>`,
+                inline: true
+              },
+              {
+                name: "Positions applied for:",
+                value: `${getCheck("Helper")}\n${getCheck("Mod")}`,
+                inline: true
+              },
+              {
+                name: "Questions",
+                value: "\u200b",
+                inline: true
+              },
+              {
+                name: "Tell us 3 things about yourself that you would want us to know.",
+                value: `${document.getElementById("3Things").value}`,
+                inline: true
+              },
+              {
+                name: "Why do you want to apply for the position(s) you have chosen above?",
+                value: `${document.getElementById("WhyApply").value}`,
+                inline: true
+              },
+              {
+                name: "If you are accepted into the position(s) you have chosen, how much time in a day can you dedicate to the server?",
+                value: `${document.getElementById("DedicateTime").value}`,
+                inline: true
+              }
+            ],
+          }
+        ]
+      }
+
+      request.send(JSON.stringify(params));
+}
+</script>
+</body>
