@@ -48,7 +48,7 @@ body {
   <label>Tell us 3 things about yourself that you would want us to know.</label><br><a target="_blank" href="https://epicguilddiscord.github.io/staffapps/threethingsaboutmyself-example.html">Click here to view an example.</a><br>
   <textarea id="3Things" name="3Things" cols="110" rows="30" placeholder="Three things about myself..."></textarea><br><br>
   <label>Why do you want to apply for the position(s) you have chosen above?</label><br>
-  <textarea id="WhyApply" name="WhyApply" cols="110" rows="20"></textarea><br><br>
+  <textarea id="WhyApply" name="WhyApply" cols="110" rows="20" placeholder="Why do you want to apply?"></textarea><br><br>
   <label>If you are accepted into the position(s) you have chosen, how much time a in day can you dedicate to the server?</label><br>
   <input type="text" id="DedicateTime" name="DedicateTime" placeholder="How much time can you dedicate to Epic Guild?" size="40">
 </form>
@@ -71,7 +71,7 @@ function submit(){
             if (document.getElementById(check).checked === true) {
               return document.getElementById(check).value
             }
-            else return ""
+            else return "\u200b"
       }
       var request = new XMLHttpRequest();
       request.open("POST", "https://discord.com/api/webhooks/873594232307335188/2fwVeTDwXrd9VArOJq7thz6CuCSF_SaJu9opiSxjKA4Tc5kaokWDlvVDw6gMZMAEfFOu");
