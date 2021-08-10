@@ -54,23 +54,13 @@ body {
 </form>
 
 
-<button onClick="submit();openPopup()" style="background-color: #e119e3; border: none; color: white; padding: 15px 32px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px; margin: 4px 2px; cursor: pointer;">Submit</button>
+<button onClick="submit();closeTab()" style="background-color: #e119e3; border: none; color: white; padding: 15px 32px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px; margin: 4px 2px; cursor: pointer;">Submit</button>
 
-
-<div class="form-popup" id="myForm">
-<form class="form-container">
-    <p><b>Click the buton below to exit the site. </b></p>
-    <button type="button" onclick="closePopup()" style="background-color: red;">Close and Exit</button>
-  </form>
-</div>
 
 <script>
-function openPopup() {
-  document.getElementById("myForm").style.display = "block";
-}
 
-function closePopup() {
-   location.replace = "https://epicguilddiscord.github.io/staffapps";
+function closeTab() {
+   location.replace = "https://epicguilddiscord.github.io/staffapps/submitted.html";
 }
 function darkMode() {
    var element = document.body;
