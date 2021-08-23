@@ -1,2 +1,2 @@
-# Official Staff Application Page for Epic Guild
-Please go to https://chillydevs.github.io/shorturl/eg-staffapps to apply.
+# Archived
+This page is archived for reasons, one of which being the developer is no longer collaborating with the related organisations on this. 
